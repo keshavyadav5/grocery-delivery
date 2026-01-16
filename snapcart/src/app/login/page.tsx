@@ -1,6 +1,6 @@
 'use client'
 import { ArrowLeft, EyeIcon, EyeOff, Key, Leaf, Loader2, Lock, LogIn, Mail, User } from 'lucide-react'
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useState, useEffect } from 'react'
 import {motion} from "motion/react"
 import Image from 'next/image'
 import googleImage from "@/assets/google.png"
@@ -16,7 +16,11 @@ function Login() {
     const [loading,setLoading]=useState(false)
     const router=useRouter()
     const session=useSession()
-    console.log(session)
+     useEffect(() => {
+    if (session.status === "authenticated") {
+      router.replace("/")
+    }
+  }, [session.status === "authenticated"])
     const handleLogin=async (e:FormEvent)=>{
         e.preventDefault()
         setLoading(true)
