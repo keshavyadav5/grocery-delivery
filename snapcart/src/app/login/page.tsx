@@ -52,6 +52,7 @@ try {
       }}
        className='text-4xl font-extrabold text-green-700 mb-2'>Welcome Back</motion.h1>
        <p className='text-gray-600 mb-8 flex items-center'>Login To Snapcart <Leaf className='w-5 h-5 text-green-600'/></p>
+       <p className='text-sm text-gray-300'>for admin: kesavyadav992@gmail.com <br /> password: kesavyadav992</p>
        <motion.form
       onSubmit={handleLogin}
        initial={{
