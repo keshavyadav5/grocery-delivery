@@ -49,13 +49,18 @@ try {
     if(backendImage){
 formData.append("image",backendImage)
     }
-    
-
    const result=await axios.post("/api/admin/add-grocery",formData) 
-   console.log(result.data)
-   setLoading(false)
+    if (result.data) {
+        setName("")
+        setCategory("")
+        setUnit("")
+        setPrice("")
+        setPreview("")
+        setBackendImage(null)
+    }
 } catch (error) {
     console.log(error)
+}finally{
     setLoading(false)
 }
 }
